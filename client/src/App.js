@@ -1,9 +1,10 @@
-import React from 'react';
-
+import React, { Fragment } from 'react';
+import Dashboard from './pages/Dashboard'
 function App() {
   return (
-    <div className="App">
-    </div>
+    <Fragment>
+      <Dashboard/>
+    </Fragment>
   );
 }
 

@@ -1,7 +1,348 @@
-div {
-  border-radius: 50px;
+@font-face {
+  font-family: Nexa;
+  src: url("./assets/fonts/Nexa Bold.otf");
+}
+
+@font-face {
+  font-family: Nexal;
+  src: url("./assets/fonts/Nexa Light.otf");
+}
+
+.container {
+  border-radius: 10px;
   background: #F5F5F5;
-  -webkit-box-shadow: 20px 20px 60px #d0d0d0,-20px -20px 60px #ffffff;
-          box-shadow: 20px 20px 60px #d0d0d0,-20px -20px 60px #ffffff;
+  -webkit-box-shadow: 3px 3px 6px #00000010,-3px -3px 6px #ffffff;
+          box-shadow: 3px 3px 6px #00000010,-3px -3px 6px #ffffff;
+}
+
+html {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  color: #707070;
+  background-color: #F5F5F5;
+  font-family: Nexa;
+}
+
+.sub {
+  font-family: Nexal;
+  font-size: 14px;
+  color: #CFCFCF;
+  text-align: center;
+}
+
+button {
+  color: #707070;
+  font-family: Nexa;
+  font-size: 18px;
+  border-radius: 5px;
+  background: #F5F5F5;
+  -webkit-box-shadow: 5px 5px 10px #00000010,-5px -5px 10px #ffffff;
+          box-shadow: 5px 5px 10px #00000010,-5px -5px 10px #ffffff;
+  border: none;
+  width: 190px;
+  height: 50px;
+  margin: auto;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+}
+
+button:active {
+  -webkit-box-shadow: 1px 1px 5px #00000010,-1px -1px 5px #ffffff;
+          box-shadow: 1px 1px 5px #00000010,-1px -1px 5px #ffffff;
+}
+
+button:focus {
+  outline: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+input {
+  color: #707070;
+  font-family: Nexa;
+  font-size: 18px;
+  border-radius: 5px;
+  background: #F5F5F5;
+  -webkit-box-shadow: inset 2px 2px 5px #00000010, inset -2px -2px 5px #f0f0f0;
+          box-shadow: inset 2px 2px 5px #00000010, inset -2px -2px 5px #f0f0f0;
+  width: 80%;
+  height: 60px;
+  border: none;
+  text-align: center;
+  -webkit-transition: 0.1s;
+  transition: 0.1s;
+}
+
+input:focus {
+  outline: none;
+  -webkit-box-shadow: inset 5px 5px 10px #00000010, inset -5px -5px 10px #f0f0f0;
+          box-shadow: inset 5px 5px 10px #00000010, inset -5px -5px 10px #f0f0f0;
+}
+
+input::-webkit-input-placeholder {
+  color: #CFCFCF;
+}
+
+input:-ms-input-placeholder {
+  color: #CFCFCF;
+}
+
+input::-ms-input-placeholder {
+  color: #CFCFCF;
+}
+
+input::placeholder {
+  color: #CFCFCF;
+}
+
+.nostylebtn {
+  height: auto;
+  width: auto;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.nostylebtn:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.nostylebtn:focus {
+  outline: none;
+}
+
+.nostylebtn:hover {
+  cursor: pointer;
+}
+
+.Splash {
+  height: 100vh;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 90% 10%;
+      grid-template-rows: 90% 10%;
+}
+
+.Splash div {
+  -ms-grid-row: 1;
+  grid-row: 1;
+  margin: auto;
+}
+
+.Splash div * {
+  text-align: center;
+}
+
+.Splash p {
+  -ms-grid-row: 2;
+  grid-row: 2;
+  margin: auto;
+}
+
+.Login {
+  height: 100vh;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto 460px auto;
+      grid-template-rows: auto 460px auto;
+}
+
+.Login h1 {
+  margin: auto;
+  text-align: center;
+  -ms-grid-row: 1;
+  grid-row: 1;
+}
+
+.Login div {
+  height: 460px;
+  width: 390px;
+  -ms-grid-row: 2;
+  grid-row: 2;
+  grid-colum: 2;
+  display: -ms-grid;
+  display: grid;
+  margin: auto;
+  -ms-grid-rows: 25% auto;
+      grid-template-rows: 25% auto;
+}
+
+.Login div h1 {
+  margin: auto;
+  text-align: center;
+}
+
+.Login div form {
+  height: 100%;
+  width: 100%;
+  -ms-grid-row: 2;
+  grid-row: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: auto;
+}
+
+.Login div form input {
+  margin: auto;
+}
+
+.Login div form button {
+  margin: auto;
+}
+
+.Login button {
+  -ms-grid-row: 3;
+  grid-row: 3;
+}
+
+.Signup {
+  height: 100vh;
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 10% auto;
+      grid-template-rows: 10% auto;
+}
+
+.Signup h1 {
+  margin: auto;
+  text-align: center;
+  -ms-grid-row: 1;
+  grid-row: 1;
+}
+
+.Signup div {
+  height: 90%;
+  width: 390px;
+  -ms-grid-row: 2;
+  grid-row: 2;
+  display: -ms-grid;
+  display: grid;
+  margin: auto;
+  -ms-grid-rows: 15% auto;
+      grid-template-rows: 15% auto;
+}
+
+.Signup div h1 {
+  margin: auto;
+  text-align: center;
+}
+
+.Signup div form {
+  height: 100%;
+  width: 100%;
+  -ms-grid-row: 2;
+  grid-row: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: auto;
+}
+
+.Signup div form input {
+  margin: auto;
+}
+
+.Signup div form button {
+  margin: auto;
+}
+
+.Dashboard {
+  height: 100%;
+  width: 100%;
+}
+
+.Nav {
+  width: 100%;
+  height: 150px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.Nav .nostylebtn {
+  margin-left: 5%;
+  margin-right: 1%;
+  height: 80%;
+}
+
+.Nav .addlist {
+  display: block;
+  margin-right: 2%;
+}
+
+.Nav h1 {
+  margin: auto;
+  margin-left: 1%;
+}
+
+.ListHolder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-left: 4%;
+}
+
+.List {
+  min-width: 400px;
+  margin: 30px;
+  margin-bottom: 50px;
+}
+
+.List h1 {
+  left-margin: 50px;
+}
+
+.itm {
+  width: 100%;
+  height: 50px;
+}
+
+.itm p {
+  margin: auto;
+  text-align: center;
+}
+
+.itmholder {
+  display: block;
+  height: 100%;
+  width: 100%;
+}
+
+.itmholder button {
+  margin: auto;
+}
+
+.Drawer {
+  height: 100vh;
+  width: 500px;
+  position: absolute;
+  background: #F5F5F5;
+  left: -500px;
+  -webkit-transition: 0.1s ease-in-out;
+  transition: 0.1s ease-in-out;
 }
 /*# sourceMappingURL=index.css.map */
