@@ -308,32 +308,63 @@ input::placeholder {
 
 .List {
   min-width: 400px;
+  heigh: auto;
   margin: 30px;
   margin-bottom: 50px;
 }
 
 .List h1 {
-  left-margin: 50px;
-}
-
-.itm {
-  width: 100%;
-  height: 50px;
-}
-
-.itm p {
-  margin: auto;
   text-align: center;
 }
 
-.itmholder {
-  display: block;
-  height: 100%;
-  width: 100%;
+.List h1 button {
+  -webkit-box-shadow: 3px 3px 5px #00000010,  -3px -3px 5px #f0f0f0;
+          box-shadow: 3px 3px 5px #00000010,  -3px -3px 5px #f0f0f0;
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
 }
 
-.itmholder button {
-  margin: auto;
+.List h1 button:active {
+  -webkit-box-shadow: 1px 1px 5px #00000010,-1px -1px 5px #ffffff;
+          box-shadow: 1px 1px 5px #00000010,-1px -1px 5px #ffffff;
+}
+
+.List h1 button:focus {
+  outline: none;
+}
+
+.List h1 .lefi {
+  margin-left: 55%;
+}
+
+.List h1 .close {
+  -webkit-box-shadow: 3px 3px 5px #FF000010,  -3px -3px 5px #fff0f0;
+          box-shadow: 3px 3px 5px #FF000010,  -3px -3px 5px #fff0f0;
+  margin-left: 5%;
+  color: #A40000;
+}
+
+.itm {
+  width: 95%;
+  height: 50px;
+  padding-top: 5%;
+  padding-left: 5%;
+}
+
+.itm h3 {
+  color: #7F7F7F;
+}
+
+.itmholder {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 85%;
 }
 
 .Drawer {

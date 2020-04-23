@@ -9,9 +9,11 @@
 
 $MainColor : #707070
 $SecondColor : #CFCFCF
+$SecondColorB : #7F7F7F
 $SubSize : 14px
 $SubSizeB : 18px
 $back : #F5F5F5
+$RedishColor : #A40000
 //default
 
 .container
@@ -199,25 +201,39 @@ input
 
 .List
     min-width : 400px
+    heigh : auto
     margin : 30px
     margin-bottom : 50px
     h1
-        left-margin : 50px
-
-.itm
-    width : 100%
-    height : 50px
-
-    p
-        margin : auto 
         text-align : center
+        button 
+            box-shadow :  3px 3px 5px #00000010,  -3px -3px 5px #f0f0f0
+            width : 30px
+            height : 30px
+            font-size : 20px
+            &:active
+                box-shadow :  1px 1px 5px #00000010,-1px -1px 5px #ffffff
+            &:focus
+                outline : none
+        .lefi
+                margin-left : 55%
+        .close
+                box-shadow :  3px 3px 5px #FF000010,  -3px -3px 5px #fff0f0
+                margin-left : 5%
+                color : $RedishColor
+        
+.itm
+    width : 95%
+    height : 50px
+    padding-top : 5%
+    padding-left : 5%
+    h3 
+        color : $SecondColorB
 
 .itmholder
-    display : block
-    height : 100%
-    width : 100%
-    button
-        margin : auto
+    display : flex
+    flex-direction : column
+    height : 85%
     
 .Drawer
     height : 100vh 

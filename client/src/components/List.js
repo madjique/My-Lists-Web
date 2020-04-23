@@ -1,17 +1,16 @@
 import React from 'react'
-
 const List = () => {
     return (
         <div className="List">
-            <h1>List Name</h1>
+            <h1>Daily<button className="lefi">+</button><button className="close">x</button>
+                </h1>
             <div className="container itmholder">
                 <div className="itm">
-                    <p>Items1</p>
+                    <h3>Items1</h3>
                 </div>
                 <div className="itm">
-                    <p>Items2</p>
+                    <h3>Items2</h3>
                 </div>
-                <button>+</button>
             </div> 
         </div>       
     )
