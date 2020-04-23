@@ -16,11 +16,13 @@ $back : #F5F5F5
 $RedishColor : #A40000
 //default
 
-.container
+@mixin Card()
     border-radius : 10px;
     background :  $back
     box-shadow :  3px 3px 6px #00000010,-3px -3px 6px #ffffff
 
+.container
+    @include Card()
 html
     margin : 0
     height : 100%
@@ -47,7 +49,8 @@ button
     background : #F5F5F5
     box-shadow :  5px 5px 10px #00000010,-5px -5px 10px #ffffff
     border : none
-    width : 190px
+    width : auto
+    padding : 1% 
     height : 50px
     margin : auto
     transition : 0.1s
@@ -242,3 +245,32 @@ input
     background : $back
     left : -500px
     transition : 0.1s ease-in-out
+
+.Blurry
+    top : 0
+    width : 100%
+    height : 100%
+    background : #0000000f
+    backdrop-filter : blur(5px);
+
+.item
+    position : absolute
+    top : 0
+    height : 100%
+    width : 100%
+    .Holder 
+        @include Card()
+        width : 50%
+        height : auto
+        margin : auto 
+        padding : 2%
+        position : absolute
+        top : 0
+        display : grid
+        grid-template-rows : 10% auto 10%      
+        .option
+            width : 100%
+            margin : 2%
+            margin-right : 0
+
+    
