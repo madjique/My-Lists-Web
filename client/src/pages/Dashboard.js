@@ -2,7 +2,6 @@ import React from 'react'
 import NavBar from '../components/NavB'
 import List from '../components/List'
 import Settings from './Settings'
-import Item from './Item'
 const Dashboard = () => {
     return (
         <div className="Dashboard">
@@ -12,7 +11,6 @@ const Dashboard = () => {
                 <List/>
                 <List/>
             </div>
-            <Item></Item>
         </div>
     )
 }

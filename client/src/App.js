@@ -1,9 +1,15 @@
-import React, { Fragment } from 'react';
+import React , { Fragment , useState} from 'react'
 import Dashboard from './pages/Dashboard'
+import Login from './pages/Login'
+
+
 function App() {
+  const [log, setlog] = useState(false)
   return (
     <Fragment>
-      <Dashboard/>
+      { 
+        (!log) ? <Login setlog={setlog}/> : <Dashboard/> 
+      }
     </Fragment>
   );
 }
