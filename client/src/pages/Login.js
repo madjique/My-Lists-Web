@@ -23,6 +23,7 @@ const Login = (props) => {
         })
         .then(res => {
                 setoken(res.data)
+                localStorage.setItem('myliststoken',res.data)
                 setlog(true)                   
         })
         .catch(res => setErrMsg(res))
