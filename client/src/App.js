@@ -5,10 +5,11 @@ import Login from './pages/Login'
 
 function App() {
   const [log, setlog] = useState(false)
+  const [token,settoken]=useState()
   return (
     <Fragment>
       { 
-        (!log) ? <Login setlog={setlog}/> : <Dashboard/> 
+        (!log) ? <Login setlog={setlog} setoken={settoken}/> : <Dashboard token={token}/>
       }
     </Fragment>
   );

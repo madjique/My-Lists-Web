@@ -2,7 +2,7 @@ import React , {useState} from 'react'
 import axios from 'axios'
 
 const Login = (props) => {
-    const setlog = props.setlog
+    const {setlog,setoken} = props
     const [Username, setUsername] = useState()
     const [Password, setPassword] = useState()
     const [ErrMsg, setErrMsg] = useState("")
@@ -22,6 +22,7 @@ const Login = (props) => {
             Password : Password              
         })
         .then(res => {
+                setoken(res.data)
                 setlog(true)                   
         })
         .catch(res => setErrMsg(res))
@@ -36,10 +37,10 @@ const Login = (props) => {
                 <form>
                     <input type="text" placeholder="Username" value={Username} name="Username" onChange={handleChange}/>
                     <input type="password" placeholder="Password" value={Password} name="Password" onChange={handleChange}/>
-                    <button onClick={login}>Login</button>
                 </form>
+                <button onClick={login}>Login</button>
             </div>
-            <button onClick={login} >Sign up</button>
+            <button onClick={null} >Sign up</button>
         </div>
     )
 }
