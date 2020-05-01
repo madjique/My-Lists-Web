@@ -206,22 +206,26 @@ input
     heigh : auto
     margin : 30px
     margin-bottom : 50px
-    h1
-        text-align : center
-        button 
-            box-shadow :  3px 3px 5px #00000010,  -3px -3px 5px #f0f0f0
-            width : 30px
-            height : 30px
-            font-size : 20px
-            &:active
-                box-shadow :  1px 1px 5px #00000010,-1px -1px 5px #ffffff
-            &:focus
-                outline : none
-        .lefi
-                margin-left : 55%
-        .close
+    .titleContainer
+        text-align : left
+        width : auto
+        display : flex
+        .titleBut
+            display : flex
+            max-width : 30% 
+            margin : auto
+            margin-right : 0
+            button 
+                box-shadow :  3px 3px 5px #00000010,  -3px -3px 5px #f0f0f0
+                width : 30px
+                height : 30px
+                font-size : 20px
+                &:active
+                    box-shadow :  1px 1px 5px #00000010,-1px -1px 5px #ffffff
+                &:focus
+                    outline : none   
+            .close
                 box-shadow :  3px 3px 5px #FF000010,  -3px -3px 5px #fff0f0
-                margin-left : 5%
                 color : $RedishColor
         
 .itm
@@ -242,10 +246,11 @@ input
     width : 100%
     position : absolute
     display : grid
-    grid-template-columns : 500px fill
+    grid-template-columns : 350px auto
 .Drawer
+    padding : 2%
     height : 100vh 
-    width : 500px
+    width : 350px
     background : $back 
     position : absolute
     transition : 0.1s ease-in-out

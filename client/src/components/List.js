@@ -18,11 +18,16 @@ const List = (props) => {
     const [Items, setItems] = useState([])
     useEffect(() => {
         getitems(token,listid).then(res => setItems(res))
-    }, [])
+    })
     return (
         <div className="List">
-            <h1>{Title}<button className="lefi">+</button><button className="close">x</button>
-                </h1>
+            <div className="titleContainer">
+                <h1>{Title}</h1>
+                <div className="titleBut">
+                    <button className="lefi">+</button>
+                    <button className="close">x</button>
+                </div>
+            </div>
             <div className="container itmholder">
                 {
                     Items.map(el => 

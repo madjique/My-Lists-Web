@@ -17,6 +17,17 @@ const getlists = async(token) =>  {
     return response
 }
 
+const addlist = async (title,token) => {
+    await axios({
+        method : "POST",
+        url : "http://localhost:8080/api/Lists/add",
+        'Access-Control-Allow-Headers': '*',
+        headers : {
+            'auth-token' : token
+        }
+    },{Title : title})
+}
+
 
 const Dashboard = (props) => {
     const {token} = props
@@ -24,11 +35,11 @@ const Dashboard = (props) => {
     const [toggle, settoggle] = useState(false)
     useEffect(()=>{
         getlists(token).then(res => setLists(res))
-    } ,[])
+    } )
     return (
         <div className="Dashboard">
-            {toggle ? <Settings settg={settoggle}></Settings> : <div/> }
-            <NavBar tgsetting={settoggle}/>
+            <Settings toggle={toggle} settoggle={settoggle}></Settings>
+            <NavBar />
             <div className = "ListHolder">
                 { Lists ? Lists.map( el => !el.Deleted ? <List key={el._id} Title={el.Title} listid={el._id} token={token} />  : null) : null}
             </div>

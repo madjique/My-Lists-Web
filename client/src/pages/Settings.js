@@ -1,16 +1,21 @@
-import React from 'react'
+import React,{Fragment} from 'react'
 
 const Settings = (props) => {
-    const {settg}= props
     return (
-        <div className="Setting">
-            <div className="Drawer">
-                <h1>Drawer</h1>
-            </div>
-            <div className="Blurry setBlurry" onClick={settg(false)}>
+        <Fragment>
+        {
+            props.toggle ? 
+            
+            <div className="Setting">
+                <div className="Drawer">
+                        <h1>Settings</h1>
+                </div>
+                <div className="Blurry setBlurry" onMouseDown={props.settoggle(false)}/> 
+            </div>  :
+            null
 
-            </div> 
-        </div>        
+        }  
+        </Fragment>    
     )
 }
 
