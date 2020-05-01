@@ -1,17 +1,23 @@
 import React, { useState,useEffect } from 'react'
 import Axios from 'axios'
-const getitems = async (listid) => {
-    return await Axios({
+const getitems = async (token,listid) => {
+    const response =  await Axios({
         method : "GET",
-        url : `http://localhost:8080/api/${listid}/items`
+        url : `http://localhost:8080/api/${listid}/items`,
+        'Access-Control-Allow-Headers': '*',
+        headers : {
+            'auth-token' : token
+        }
+
     })
+    return response.data
 }
 
 const List = (props) => {
-    const {Title,listid} = props
+    const {Title,listid,token} = props
     const [Items, setItems] = useState([])
     useEffect(() => {
-        setItems(getitems(listid))
+        getitems(token,listid).then(res => setItems(res))
     }, [])
     return (
         <div className="List">
@@ -20,7 +26,7 @@ const List = (props) => {
             <div className="container itmholder">
                 {
                     Items.map(el => 
-                        <div className="itm">
+                        <div key={el._id} className="itm">
                             <h3>{el.Title}</h3>
                         </div>)
                 }

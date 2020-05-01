@@ -5,32 +5,32 @@ import Settings from './Settings'
 import axios from 'axios'
 
 const getlists = async(token) =>  {
-    return await axios({
+    let response = {}
+    await axios({
         method : "GET",
         url : "http://localhost:8080/api/Lists/",
         'Access-Control-Allow-Headers': '*',
         headers : {
             'auth-token' : token
         }
-    })  
+    }).then(res => response = res.data) 
+    return response
 }
 
 
 const Dashboard = (props) => {
     const {token} = props
     const [Lists, setLists] = useState([])
+    const [toggle, settoggle] = useState(false)
     useEffect(()=>{
-        function Fillup(){
-            return getlists(token).data
-        }
-         setLists(Fillup())
+        getlists(token).then(res => setLists(res))
     } ,[])
     return (
         <div className="Dashboard">
-            <Settings></Settings>
-            <NavBar/>
+            {toggle ? <Settings settg={settoggle}></Settings> : <div/> }
+            <NavBar tgsetting={settoggle}/>
             <div className = "ListHolder">
-                { Lists ? Lists.map( el => <List Title={el.Title} listid={el._id}/>) : null }
+                { Lists ? Lists.map( el => !el.Deleted ? <List key={el._id} Title={el.Title} listid={el._id} token={token} />  : null) : null}
             </div>
         </div>
     )
