@@ -3,8 +3,7 @@ import NavBar from '../components/NavB'
 import List from '../components/List'
 import Settings from './Settings'
 import {getlists} from '../Requests'
-
-
+//import AddList from '../components/addlist'
 
 const Dashboard = (props) => {
     const {token} = props

@@ -12,7 +12,6 @@ function App() {
       if (strtkn) {
         settoken(strtkn) 
         setlog(true)
-        console.log(strtkn)
       }  
   }, [strtkn])
   return (

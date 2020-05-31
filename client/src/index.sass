@@ -210,10 +210,13 @@ input
     heigh : auto
     margin : 20px
     margin-bottom : 50px
+    margin-top : 50px
+    transition : 0.3s ease-in-out
     .titleContainer
         text-align : left
         width : auto
         display : flex
+        padding-left : 2%
         .titleBut
             display : flex
             max-width : 30% 
@@ -235,15 +238,21 @@ input
 .itm
     width : 95%
     height : 50px
-    padding-top : 5%
     padding-left : 5%
+    transition : 0.3s ease-in-out
+    cursor : pointer
     h3 
         color : $SecondColorB
+        vertical-align : middle 
+    &:hover
+        background : $SecondColor
 
 .itmholder
     display : flex
     flex-direction : column
     height : 85%
+    padding-top : 5%
+    transition : 0.3s ease-in-out
     
 .Setting
     height : 100vh 
@@ -260,34 +269,35 @@ input
     transition : 0.1s ease-in-out
     grid-column : 1
 
-.Blurry
-    top : 0
-    width : 100%
-    height : 100%
-    background : #0000000f
-    backdrop-filter : blur(5px)
-    transition : 0.1s ease-in-out
-.setBlurry 
-    grid-column : 2 
 
 .item
     position : absolute
     top : 0
+    left : 0
     height : 100%
     width : 100%
+    display : flex
+    background : #0000000f
+    backdrop-filter : blur(5px)
     .Holder 
         @include Card()
-        width : 50%
-        height : auto
+        width : 800px
+        min-height : 500px
         margin : auto 
-        padding : 2%
-        position : absolute
-        top : 0
-        display : grid
-        grid-template-rows : 10% auto 10%      
-        .option
-            width : 100%
-            margin : 2%
-            margin-right : 0
+        display : flex
+        flex-direction : column
+        button
+            margin : 5%
+            margin-left : 5%
+        .itmInfo    
+            margin-left : 5%
+            margin-right : 5%
+            display : flex
+            flex-direction : column 
+            height : 80% 
+        .options
+            display : flex
+            margin : auto
+            margin-right : 5%
 
     

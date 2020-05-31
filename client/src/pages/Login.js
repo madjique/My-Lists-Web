@@ -28,7 +28,7 @@ const Login = (props) => {
                 setlog(true)  
                 setredi("/Dashboard")                 
         })
-        .catch(res => console.log(res))
+        .catch(res => setErrMsg(res))
     }
     const tosign = () => setredi("/signup")
 
