@@ -18,6 +18,7 @@ const List = (props) => {
     }
     const ShowItm = (e) => {
         setinfos(Items.find(it => it.key === e.target.key)) 
+        console.log(Items.find(it => it.key === e.target.key))
         setshowitm(true)
     }
     const deletelst = async () => await deletelist(token,Title)
@@ -38,7 +39,7 @@ const List = (props) => {
                         </div>)
                 }
                 {
-                    showitm ? <ItemSh infos={infos} setsh={setshowitm}/> : null
+                    showitm ? <ItemSh infos={infos} setsh={setshowitm} token={token} /> : null
                 }
             </div> 
         </div>       

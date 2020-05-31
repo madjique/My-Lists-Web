@@ -59,11 +59,28 @@ const additem = async (token,listid,itm) => {
         'Access-Control-Allow-Headers': '*',
         headers : {
             'auth-token' : token
-        }
+        },
+        data : {"Title" : itm.Title,
+        "Description" : itm.Description}
 
-    },{Title : itm.Title,
-    Description : itm.Description})
+    })
     return response.data
 }
 
-export { getlists,addlist,getitems , deletelist , additem} 
+
+const updateItem = async (token,itm) => {
+    const response =  await axios({
+        method : "PATCH",
+        url : `http://localhost:8080/api/${itm.ListID}/upd/${itm._id}`,
+        'Access-Control-Allow-Headers': '*',
+        headers : {
+            'auth-token' : token
+        },
+        data : itm
+    })
+    return response.data
+}
+
+
+
+export { getlists,addlist,getitems , deletelist , additem, updateItem} 

@@ -278,6 +278,7 @@ input
     width : 100%
     display : flex
     background : #0000000f
+    transition : 0.3s ease-in-out 
     backdrop-filter : blur(5px)
     .Holder 
         @include Card()
@@ -295,9 +296,17 @@ input
             display : flex
             flex-direction : column 
             height : 80% 
+            input
+                margin : auto
+                width : 100%
+                margin-top : 10px
+                text-align : left
+                padding-left : 20px 
         .options
             display : flex
             margin : auto
             margin-right : 5%
+        
+
 
     
