@@ -1,7 +1,8 @@
 import React , { Fragment , useState ,useEffect} from 'react'
+import {BrowserRouter as Router , Switch , Redirect, Route} from 'react-router-dom'
 import Dashboard from './pages/Dashboard'
 import Login from './pages/Login'
-
+import Signup from'./pages/SignUp'
 
 function App() {
   const [log, setlog] = useState(false)
@@ -15,9 +16,25 @@ function App() {
   }, [])
   return (
     <Fragment>
-      { 
-        (!log) ? <Login setlog={setlog} setoken={settoken}/> : <Dashboard token={token}/>
-      }
+        <Router>
+          <Switch>
+            <Route path="/signup">
+              <Signup setlog={setlog} setoken={settoken}/> 
+            </Route>
+            <Route path="/Dashboard">
+              {log ? <Dashboard token={token}/>: <Redirect to="/login"/>} 
+            </Route>
+            <Route path="/login">
+              <Login setlog={setlog} setoken={settoken}/> 
+            </Route>
+            <Route path="/">
+              {
+                log ? <Redirect to="/Dashboard"/> : <Redirect to="/login"/>
+              }
+              <Redirect to="/login"/>
+            </Route>
+          </Switch>
+        </Router>
     </Fragment>
   );
 }

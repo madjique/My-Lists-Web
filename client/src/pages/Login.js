@@ -1,12 +1,13 @@
-import React , {useState} from 'react'
+import React , {useState , Fragment} from 'react'
 import axios from 'axios'
+import { Redirect } from 'react-router-dom'
 
 const Login = (props) => {
     const {setlog,setoken} = props
     const [Username, setUsername] = useState()
     const [Password, setPassword] = useState()
     const [ErrMsg, setErrMsg] = useState("")
-
+    const [redi, setredi] = useState()
     const handleChange = (event) => {
         if (event.target.name === 'Username')
             setUsername(event.target.value) 
@@ -24,25 +25,32 @@ const Login = (props) => {
         .then(res => {
                 setoken(res.data)
                 localStorage.setItem('myliststoken',res.data)
-                setlog(true)                   
+                setlog(true)  
+                setredi("/Dashboard")                 
         })
-        .catch(res => setErrMsg(res))
+        .catch(res => console.log(res))
     }
-    
+    const tosign = () => setredi("/signup")
+
     return (
-        <div className="Login">
-            <h1>My Lists</h1>
-            <div className="container">
-                <h1>Log in</h1>
-                <p style={{Color : "red"}} value={ErrMsg}></p>
-                <form>
-                    <input type="text" placeholder="Username" value={Username} name="Username" onChange={handleChange}/>
-                    <input type="password" placeholder="Password" value={Password} name="Password" onChange={handleChange}/>
-                </form>
-                <button onClick={login}>Login</button>
+        <Fragment>
+        {
+            redi ? <Redirect to={redi}/> :
+            <div className="Login">
+                <h1>My Lists</h1>
+                <div className="container">
+                    <h1>Log in</h1>
+                    {ErrMsg ? <p style={{"color" : "#AA0000" , "margin" : "auto"}}>{ErrMsg}</p> : null}
+                    <form>
+                        <input type="text" placeholder="Username" value={Username} name="Username" onChange={handleChange}/>
+                        <input type="password" placeholder="Password" value={Password} name="Password" onChange={handleChange}/>
+                    </form>
+                    <button onClick={login}>Login</button>
+                </div>
+                <button onClick={tosign} >Sign up</button>
             </div>
-            <button onClick={null} >Sign up</button>
-        </div>
+        }
+        </Fragment>    
     )
 }
 
