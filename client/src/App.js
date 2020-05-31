@@ -7,13 +7,14 @@ import Signup from'./pages/SignUp'
 function App() {
   const [log, setlog] = useState(false)
   const [token,settoken]=useState()
+  const strtkn = localStorage.getItem('myliststoken')
   useEffect(() => {
-      const strtkn = localStorage.getItem('myliststoken')
       if (strtkn) {
         settoken(strtkn) 
-        setlog(true)  
+        setlog(true)
+        console.log(strtkn)
       }  
-  }, [])
+  }, [strtkn])
   return (
     <Fragment>
         <Router>
@@ -25,13 +26,12 @@ function App() {
               {log ? <Dashboard token={token}/>: <Redirect to="/login"/>} 
             </Route>
             <Route path="/login">
-              <Login setlog={setlog} setoken={settoken}/> 
+              {
+                log ? <Redirect to="/Dashboard"/> : <Login setlog={setlog} setoken={settoken}/> 
+              }
             </Route>
             <Route path="/">
-              {
-                log ? <Redirect to="/Dashboard"/> : <Redirect to="/login"/>
-              }
-              <Redirect to="/login"/>
+                <Redirect to="/login"/>
             </Route>
           </Switch>
         </Router>
