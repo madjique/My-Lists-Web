@@ -1,11 +1,12 @@
 import React from 'react'
 
-const addlist = () => {
+const Addlist = () => {
     return (
-        <div>
-            
+        <div className="item" >
+            <div className="Holder">
+            </div>
         </div>
     )
 }
 
-export default addlist
+export default Addlist

@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import {updateItem} from '../Requests'
+import {updateItem , deleteitem} from '../Requests'
 const Item = (props) => {
     const {infos , setsh , token} = props
     const {Creation} = infos
@@ -35,6 +35,15 @@ const Item = (props) => {
         disUpd()
         window.location.reload(false)
     }
+    const del = ()=>{
+        deleteitem(token,
+            {
+                "ListID" : infos.ListID ,
+                "_id" : infos._id
+            })
+        back()
+        window.location.reload(false)
+    }
     return (
         <div className="item">
             {
@@ -62,7 +71,7 @@ const Item = (props) => {
                         <p className="sub">issue : {Creation}</p>
                     </div>
                     <div className="options" >
-                        <button className="nostylebtn">Delete</button>
+                        <button className="nostylebtn" onClick={del}>Delete</button>
                         <button onClick={enUpd}>Update</button>
                     </div>
                 </div> 

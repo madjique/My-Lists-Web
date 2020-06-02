@@ -54,7 +54,7 @@ const deletelist = async (token,listname) => {
 
 const additem = async (token,listid,itm) => {
     const response =  await axios({
-        method : "GET",
+        method : "POST",
         url : `http://localhost:8080/api/${listid}/add`,
         'Access-Control-Allow-Headers': '*',
         headers : {
@@ -81,6 +81,16 @@ const updateItem = async (token,itm) => {
     return response.data
 }
 
+const deleteitem = async (token,itm) => {
+    const response =  await axios({
+        method : "DELETE",
+        url : `http://localhost:8080/api/${itm.ListID}/del/${itm._id}`,
+        'Access-Control-Allow-Headers': '*',
+        headers : {
+            'auth-token' : token
+        }
+    })
+    return response.data
+}
 
-
-export { getlists,addlist,getitems , deletelist , additem, updateItem} 
+export { getlists,addlist,getitems , deletelist , additem, updateItem , deleteitem} 

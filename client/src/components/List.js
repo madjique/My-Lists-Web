@@ -1,12 +1,16 @@
 import React, { useState,useEffect} from 'react'
 import {getitems, deletelist} from '../Requests'
 import ItemSh from '../pages/Item'
+import Addit from './additem'
+import Addlst from './addlist'
 
 const List = (props) => {
     const {Title,listid,token} = props
     const [Items, setItems] = useState([])
     const [upt, setupt] = useState(true)
     const [showitm, setshowitm] = useState(false)
+    const [shadditm, setshadditm] = useState(false)
+    const [shaddlst, setshaddlst] = useState(false)
     const [infos, setinfos] = useState()
     useEffect(() => {
         setupt(true)
@@ -14,12 +18,16 @@ const List = (props) => {
         return () => setupt(false)
     },[upt,listid,token])
     
-    const additm = () =>{
+    const additm = (e) =>{
+        setshadditm(true)
     }
     const ShowItm = (e) => {
-        setinfos(Items.find(it => it.key === e.target.key)) 
-        console.log(Items.find(it => it.key === e.target.key))
+        setinfos(Items.find(it => it._id === e.target.id))
+        console.log(infos)
         setshowitm(true)
+    }
+    const addlst = () =>{
+
     }
     const deletelst = async () => await deletelist(token,Title)
     return (
@@ -34,12 +42,18 @@ const List = (props) => {
             <div className="container itmholder">
                 {
                     Items.map(el => 
-                        <div key={el._id} className="itm" onClick={ShowItm}>
-                            <h3>{el.Title}</h3>
+                        <div key={el._id} id={el._id}  className="itm" onClick={ShowItm}>
+                            <h3 id={el._id} >{el.Title}</h3>
                         </div>)
                 }
                 {
                     showitm ? <ItemSh infos={infos} setsh={setshowitm} token={token} /> : null
+                }
+                {
+                    shadditm ? <Addit ListID={listid} setsh={setshadditm} token={token} /> : null
+                }
+                {
+                    shaddlst ? <Addlst token={token} /> : null
                 }
             </div> 
         </div>       
