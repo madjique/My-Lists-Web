@@ -13,13 +13,14 @@ $SecondColorB : #7F7F7F
 $SubSize : 14px
 $SubSizeB : 18px
 $back : #F5F5F5
-$RedishColor : #A40000
+$RedishColor : #b82323
 //default
 
 @mixin Card()
-    border-radius : 8px;
+    border-radius : 5px;
     background :  $back
     box-shadow :  3px 3px 6px #00000010,-3px -3px 6px #ffffff
+    border : solid 1px $SecondColor
 
 .container
     @include Card()
@@ -53,13 +54,14 @@ button
     height : 50px
     margin : auto
     transition : 0.1s
-    focus
-    &:active
-        box-shadow :  1px 1px 5px #00000010,-1px -1px 5px #ffffff
+    focus : none
+    cursor : pointer
     &:focus
         outline : none
     &:hover
-        cursor : pointer
+        box-shadow :  10px 10px 20px #00000010,-10px -10px 20px #ffffff
+    &:active
+        box-shadow :  1px 1px 5px #00000010,-1px -1px 5px #ffffff
 
 
 input 
@@ -74,6 +76,7 @@ input
     border : none
     text-align : center
     transition : 0.1s
+    border : solid 1px $SecondColor
     &:focus
         outline : none
         box-shadow : inset 5px 5px 10px #00000010, inset -5px -5px 10px #f0f0f0
@@ -81,15 +84,18 @@ input
         color : $SecondColor
 
 .nostylebtn
-    height : auto
-    width : auto
+    width : 150px
+    height : 50px
     box-shadow : none
-    &:active
-        box-shadow :  none
     &:focus
         outline : none
     &:hover
         cursor : pointer
+        box-shadow : none
+        box-shadow :  inset 2px 2px 5px #00000010, inset -2px -2px 5px #f0f0f0
+    &:active
+       
+        
 
 
 //splash styles
@@ -181,14 +187,22 @@ input
     width : 100%
 .Nav
     width : 100%
-    height : 150px
+    height : 100px
     margin : auto
     display : flex
+    transition : 0.3s 
+    border : solid 1px #e0e0e0
     .nostylebtn
         margin-left : 5%
         margin-right : 1%
         height : 80%
-            
+        &:hover
+            box-shadow : none 
+    &:hover
+        box-shadow :  0px 5px 20px #00000009
+        height : 120px
+        border : solid 1px $back
+
     .addlist
         display : block
         margin-right : 5%
@@ -199,53 +213,79 @@ input
 .ListHolder
     display : flex
     flex-wrap : wrap 
-    justify-content : left 
-    margin : 4%
+    justify-content :  flex-start
+    width : 90%
+    margin : auto
+    margin-top : 0
     @media screen and ( max-width : 1024px  )
        justify-content : center 
         
 
 .List
-    min-width : 400px
-    heigh : auto
-    margin : 20px
+    width : 330px  
+    margin : 1%
     margin-bottom : 50px
     margin-top : 50px
-    transition : 0.3s ease-in-out
+    font-size : 14px
+    transition : 0.1s ease-in-out 
+    &:hover
+        .itmholder
+            box-shadow :  0px 0px 20px #00000010
+
     .titleContainer
         text-align : left
-        width : auto
+        width : 100%
         display : flex
         padding-left : 2%
         .titleBut
-            display : flex
-            max-width : 30% 
+            display : inline-block
+            width : auto 
             margin : auto
-            margin-right : 0
+            margin-right : 2%
             button 
                 box-shadow :  3px 3px 5px #00000010,  -3px -3px 5px #f0f0f0
-                width : 30px
+                width : 50px
                 height : 30px
                 font-size : 20px
+                text-align : center
+                margin-right : 10px
                 &:active
                     box-shadow :  1px 1px 5px #00000010,-1px -1px 5px #ffffff
                 &:focus
-                    outline : none   
+                    outline : none 
+                &:hover
+                    box-shadow :  0px 0px 5px #00ce339c
+                    background : #00ce339c
+                    color : white 
+                    border-color : #00ce339c 
+                    transform : scale(1.1) 
             .close
                 box-shadow :  3px 3px 5px #FF000010,  -3px -3px 5px #fff0f0
                 color : $RedishColor
+                width : 30px
+                &:hover
+                    box-shadow :  0px 0px 5px #f80000af
+                    background : #ff00009c
+                    color : white
+                    border-color : #f80000af
+                &:active
+                    transform : scale(0.9) 
+                    
         
 .itm
-    width : 95%
+    width : 90%
     height : 50px
-    padding-left : 5%
     transition : 0.3s ease-in-out
     cursor : pointer
     border-top : 1px solid $SecondColor
-    
+    overflow : hidden;
+    white-space : nowrap;
+    padding-left : 5%
+    padding-right : 5%
     h3 
         color : $SecondColorB
         vertical-align : middle 
+        text-overflow : ellipsis
     &:hover
         background : $SecondColor
 
@@ -293,17 +333,22 @@ input
             margin : 5%
             margin-left : 5%
         .itmInfo    
-            margin-left : 5%
-            margin-right : 5%
+            width : 90%
+            margin : auto 
             display : flex
             flex-direction : column 
             height : 80% 
+            white-space : nowrap;
             input
                 margin : auto
-                width : 100%
+                width : 95%
                 margin-top : 10px
                 text-align : left
                 padding-left : 20px 
+            p
+                text-overflow : ellipsis
+
+
         .options
             display : flex
             margin : auto

@@ -23,10 +23,15 @@ const Login = (props) => {
             Password : Password              
         })
         .then(res => {
+            if(res.data.length < 100)
+                setErrMsg(res.data) 
+            else
+            {
                 setoken(res.data)
                 localStorage.setItem('myliststoken',res.data)
                 setlog(true)  
-                setredi("/Dashboard")                 
+                setredi("/Dashboard")   
+            }                  
         })
         .catch(res => setErrMsg(res))
     }

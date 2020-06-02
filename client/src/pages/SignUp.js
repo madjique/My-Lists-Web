@@ -38,7 +38,7 @@ const SignUp = (props) => {
             Full_Name : FullName             
         })
         .then(res => {
-                if(res.data.length < 50)
+                if(res.data.length < 100)
                     setErrMsg(res.data) 
                 else
                 {

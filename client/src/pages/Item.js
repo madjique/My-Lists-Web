@@ -65,7 +65,7 @@ const Item = (props) => {
                     <button onClick={back}>back</button>
                     <div className="itmInfo">
                         <h1>{Titl}</h1>
-                        <p className="sub" >{Desc}</p>
+                        {Desc ?  <p className="sub" >{Desc}</p> : <p className="sub" >No description</p>}
                         {DLine ? <p>Deadline : {DLine}<br/></p> : <p>No deadline set<br/></p>}
                         
                         <p className="sub">issue : {Creation}</p>
