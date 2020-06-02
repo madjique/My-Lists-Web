@@ -15,7 +15,7 @@ const Dashboard = (props) => {
     return (
         <div className="Dashboard">
             <Settings toggle={toggle} settoggle={settoggle}></Settings>
-            <NavBar />
+            <NavBar token={token} />
             <div className = "ListHolder">
                 { Lists ? Lists.map( el => !el.Deleted ? <List key={el._id} Title={el.Title} listid={el._id} token={token} />  : null) : null}
             </div>

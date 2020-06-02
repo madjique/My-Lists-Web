@@ -2,7 +2,6 @@ import React, { useState,useEffect} from 'react'
 import {getitems, deletelist} from '../Requests'
 import ItemSh from '../pages/Item'
 import Addit from './additem'
-import Addlst from './addlist'
 
 const List = (props) => {
     const {Title,listid,token} = props
@@ -10,7 +9,6 @@ const List = (props) => {
     const [upt, setupt] = useState(true)
     const [showitm, setshowitm] = useState(false)
     const [shadditm, setshadditm] = useState(false)
-    const [shaddlst, setshaddlst] = useState(false)
     const [infos, setinfos] = useState()
     useEffect(() => {
         setupt(true)
@@ -25,9 +23,6 @@ const List = (props) => {
         setinfos(Items.find(it => it._id === e.target.id))
         console.log(infos)
         setshowitm(true)
-    }
-    const addlst = () =>{
-
     }
     const deletelst = async () => await deletelist(token,Title)
     return (
@@ -51,9 +46,6 @@ const List = (props) => {
                 }
                 {
                     shadditm ? <Addit ListID={listid} setsh={setshadditm} token={token} /> : null
-                }
-                {
-                    shaddlst ? <Addlst token={token} /> : null
                 }
             </div> 
         </div>       
