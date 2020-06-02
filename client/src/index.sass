@@ -35,6 +35,7 @@ body
     color : $MainColor
     background-color : #F5F5F5
     font-family : Nexa
+    
 .sub
     font-family : Nexal
     font-size : $SubSize
@@ -183,6 +184,8 @@ input
                 margin : auto 
 
 .Dashboard
+    display : flex
+    flex-direction : column 
     height : 100%
     width : 100%
 .Nav
@@ -231,7 +234,8 @@ input
     &:hover
         .itmholder
             box-shadow :  0px 0px 20px #00000010
-
+    @media screen and ( max-width : 1024px  )
+        width : 90%
     .titleContainer
         text-align : left
         width : 100%
@@ -302,14 +306,35 @@ input
     position : absolute
     display : grid
     grid-template-columns : 350px auto
-.Drawer
-    padding : 2%
-    height : 100vh 
-    width : 350px
-    background : $back 
+
+.Drawcontainer
     position : absolute
-    transition : 0.1s ease-in-out
-    grid-column : 1
+    top : 0
+    left : 0 
+    height : 100%
+    width : 100% 
+    background : #0000000f
+    display : none
+    transition : all 0.3s ease-in-out
+    backdrop-filter : blur(5px)
+    .Drawer
+        height : 100% 
+        width : 350px
+        background : $back
+        display : flex 
+        flex-direction : column 
+        position : absolute
+        top : 0
+        left : -350px
+        transition : 0.1s ease-in-out
+        grid-column : 1
+        transition : all 0.3s ease-in-out
+        box-shadow :  20px 0px 20px #00000010
+.DCopened
+    display : flex
+.DRopened
+    left : 0
+    transition : 0.3s 
 
 
 .item
